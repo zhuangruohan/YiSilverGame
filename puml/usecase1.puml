@@ -1,0 +1,309 @@
+@startuml title 《银纹秘境：彝饰守护者》概要设计类图
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+' =========================
+' 抽象层与动画层
+' =========================
+
+abstract class Create {
+  +rect: Rect
+  +image: Surface
+  +update(dt: float): void
+  +draw(screen: Surface, camera: Camera): void
+  +check_collision(target_rect: Rect): bool
+}
+
+class Action {
+  -frames: list[Surface]
+  -current_index: int
+  -frame_timer: float
+  +play(action_name: str): void
+  +update(dt: float): void
+  +get_current_frame(): Surface
+}
+
+abstract class GameSprite {
+  +id: str
+  +name: str
+  +world_x: int
+  +world_y: int
+  +rect: Rect
+  +action: Action
+  +set_position(x: int, y: int): void
+  +get_world_rect(): Rect
+  +update(dt: float): void
+  +draw(screen: Surface, camera: Camera): void
+}
+
+Create <|-- GameSprite
+GameSprite *-- Action : contains
+
+' =========================
+' 游戏对象层
+' =========================
+
+class Player {
+  -speed: int
+  -direction: str
+  +handle_input(keys): void
+  +move(dx: int, dy: int, collision_rects: list): void
+  +interact(scene: Scene): void
+}
+
+class NPC {
+  -dialogue_id: str
+  -task_id: str
+  +can_talk(player: Player): bool
+  +talk(task_manager: TaskManager): str
+}
+
+class Item {
+  -item_id: str
+  -item_type: str
+  -codex_unlock: str
+  +can_pick(player: Player): bool
+  +pickup(inventory: Inventory, codex: Codex): void
+}
+
+abstract class Interactable {
+  -required_task: str
+  +can_interact(player: Player, context: GameContext): bool
+  +interact(context: GameContext): void
+}
+
+class PatternSourcePoint {
+  -pattern_id: str
+  -challenge_type: str
+  -reward_item: str
+  -target_scene: str
+  +start_pattern_challenge(context: GameContext): void
+}
+
+class CluePoint {
+  -pattern_id: str
+  -clue_group: str
+  -required_count: int
+  +collect_clue(task_manager: TaskManager): void
+}
+
+class RepairTable {
+  -target_minigame: str
+  +open_repair_minigame(context: GameContext): void
+}
+
+class DisplayTable {
+  -target_event: str
+  +trigger_ending(context: GameContext): void
+}
+
+class SceneExit {
+  -target_scene: str
+  -target_spawn: str
+  +change_scene(scene_manager: SceneManager): void
+}
+
+GameSprite <|-- Player
+GameSprite <|-- NPC
+GameSprite <|-- Item
+GameSprite <|-- Interactable
+Interactable <|-- PatternSourcePoint
+Interactable <|-- CluePoint
+Interactable <|-- RepairTable
+Interactable <|-- DisplayTable
+Interactable <|-- SceneExit
+
+' =========================
+' 游戏核心控制层
+' =========================
+
+class Game {
+  -screen: Surface
+  -clock: Clock
+  -running: bool
+  -state: GameState
+  -scene_manager: SceneManager
+  -resource_manager: ResourceManager
+  -ui_manager: UIManager
+  -task_manager: TaskManager
+  -inventory: Inventory
+  -codex: Codex
+  -score_manager: ScoreManager
+  +run(): void
+  +handle_events(): void
+  +update(dt: float): void
+  +render(): void
+  +change_state(state: GameState): void
+}
+
+class SceneManager {
+  -current_scene: Scene
+  -scenes: dict
+  +load_scene(scene_id: str, spawn_id: str): void
+  +change_scene(target_scene: str, target_spawn: str): void
+  +get_current_scene(): Scene
+}
+
+class Scene {
+  -scene_id: str
+  -tilemap: TileMap
+  -camera: Camera
+  -player: Player
+  -npcs: list[NPC]
+  -items: list[Item]
+  -interactables: list[Interactable]
+  +load(): void
+  +update(dt: float): void
+  +draw(screen: Surface): void
+  +find_nearest_interactable(player: Player): Interactable
+}
+
+class TileMap {
+  -tmx_path: str
+  -tile_size: int
+  -map_width: int
+  -map_height: int
+  -collision_rects: list[Rect]
+  +load_tmx(path: str): void
+  +draw_visible_tiles(screen: Surface, camera: Camera): void
+  +read_collision_layer(): list[Rect]
+  +read_object_layers(): list[dict]
+}
+
+class Camera {
+  -x: int
+  -y: int
+  -viewport_width: int
+  -viewport_height: int
+  +follow(player: Player, map_width: int, map_height: int): void
+  +clamp(map_width: int, map_height: int): void
+  +apply(world_x: int, world_y: int): tuple
+}
+
+class SceneObjectFactory {
+  +create_npc(data: dict): NPC
+  +create_item(data: dict): Item
+  +create_interactable(data: dict): Interactable
+  +create_trigger(data: dict): SceneExit
+}
+
+Game *-- SceneManager
+Game *-- ResourceManager
+Game *-- UIManager
+Game *-- TaskManager
+Game *-- Inventory
+Game *-- Codex
+Game *-- ScoreManager
+
+SceneManager *-- Scene
+Scene *-- TileMap
+Scene *-- Camera
+Scene *-- Player
+Scene o-- NPC
+Scene o-- Item
+Scene o-- Interactable
+Scene ..> SceneObjectFactory : create objects
+TileMap ..> SceneObjectFactory : object layer data
+
+' =========================
+' 数据与系统管理层
+' =========================
+
+class TaskManager {
+  -tasks: dict
+  -current_task_id: str
+  +start_task(task_id: str): void
+  +complete_task(task_id: str): void
+  +get_task_state(task_id: str): str
+  +get_current_task_text(): str
+}
+
+class Inventory {
+  -items: list[str]
+  +add_item(item_id: str): void
+  +has_item(item_id: str): bool
+  +remove_item(item_id: str): void
+  +get_all_items(): list
+}
+
+class Codex {
+  -entries: dict
+  +unlock(entry_id: str): void
+  +is_unlocked(entry_id: str): bool
+  +get_progress(): tuple
+}
+
+class ScoreManager {
+  -silver_light: int
+  -hidden_count: int
+  +add_silver_light(value: int): void
+  +calculate_ending(codex: Codex, task_manager: TaskManager): str
+}
+
+class DialogueBox {
+  -current_text: str
+  -speaker_name: str
+  +show(npc_name: str, text: str): void
+  +next(): void
+  +close(): void
+}
+
+class UIManager {
+  -dialogue_box: DialogueBox
+  +draw_hud(screen: Surface, task_manager: TaskManager): void
+  +draw_inventory(screen: Surface, inventory: Inventory): void
+  +draw_codex(screen: Surface, codex: Codex): void
+  +draw_message(screen: Surface, message: str): void
+}
+
+class ResourceManager {
+  -images: dict
+  -sounds: dict
+  +load_image(path: str): Surface
+  +load_sound(path: str): Sound
+  +get_placeholder(): Surface
+}
+
+class RepairMiniGame {
+  -target_item: str
+  -required_items: list[str]
+  -hit_count: int
+  +start(context: GameContext): void
+  +handle_input(event): void
+  +check_result(): bool
+  +finish_success(context: GameContext): void
+}
+
+class PatternRealm {
+  -pattern_id: str
+  -checkpoints: list[Rect]
+  -current_index: int
+  +enter(pattern_id: str): void
+  +check_checkpoint(player: Player): void
+  +finish(context: GameContext): void
+}
+
+class GameContext {
+  +task_manager: TaskManager
+  +inventory: Inventory
+  +codex: Codex
+  +score_manager: ScoreManager
+  +scene_manager: SceneManager
+}
+
+UIManager *-- DialogueBox
+Game ..> RepairMiniGame
+Game ..> PatternRealm
+Interactable ..> GameContext
+Player ..> Inventory
+NPC ..> TaskManager
+Item ..> Inventory
+Item ..> Codex
+RepairMiniGame ..> Inventory
+RepairMiniGame ..> TaskManager
+RepairMiniGame ..> ScoreManager
+PatternRealm ..> Inventory
+PatternRealm ..> Codex
+
+@enduml

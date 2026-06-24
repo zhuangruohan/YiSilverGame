@@ -1,0 +1,29 @@
+@startuml title 《银纹秘境：彝饰守护者》游戏状态流转图
+
+[*] --> MENU
+
+MENU --> INTRO : 点击开始游戏
+MENU --> [*] : 点击退出
+
+INTRO --> PLAYING : 剧情引导结束
+
+PLAYING --> DIALOGUE : 靠近NPC并按E
+DIALOGUE --> PLAYING : 对话结束
+
+PLAYING --> INVENTORY : 按I
+INVENTORY --> PLAYING : 按I或Esc
+
+PLAYING --> CODEX : 按G
+CODEX --> PLAYING : 按G或Esc
+
+PLAYING --> PATTERN_REALM : 与纹样点交互
+PATTERN_REALM --> PLAYING : 完成或退出纹样小关卡
+
+PLAYING --> REPAIR_MINIGAME : 与修复台交互且满足条件
+REPAIR_MINIGAME --> PLAYING : 修复完成或退出
+
+PLAYING --> ENDING : 节庆展示完成
+ENDING --> MENU : 重新开始
+ENDING --> [*] : 退出游戏
+
+@enduml

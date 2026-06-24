@@ -1,0 +1,52 @@
+@startuml left to right direction title 《银纹秘境：彝饰守护者》系统用例图
+
+actor 玩家
+
+rectangle "银纹秘境：彝饰守护者 游戏系统" {
+
+  usecase "开始游戏" as UC_Start
+  usecase "查看操作说明" as UC_Help
+  usecase "控制角色移动" as UC_Move
+  usecase "探索地图场景" as UC_Explore
+  usecase "与NPC对话" as UC_Talk
+  usecase "拾取物品" as UC_Pick
+  usecase "查看背包" as UC_Bag
+  usecase "查看图鉴" as UC_Codex
+  usecase "纹样寻源/拓印" as UC_Pattern
+  usecase "进入纹样小关卡" as UC_PatternGame
+  usecase "完成银饰修复" as UC_Repair
+  usecase "触发场景切换" as UC_Scene
+  usecase "完成节庆展示" as UC_Ending
+  usecase "重新开始或退出" as UC_Quit
+
+  usecase "显示任务提示" as UC_TaskHint
+  usecase "更新任务状态" as UC_TaskUpdate
+  usecase "解锁图鉴条目" as UC_UnlockCodex
+  usecase "计算结局评价" as UC_Score
+}
+
+玩家 --> UC_Start
+玩家 --> UC_Help
+玩家 --> UC_Move
+玩家 --> UC_Explore
+玩家 --> UC_Talk
+玩家 --> UC_Pick
+玩家 --> UC_Bag
+玩家 --> UC_Codex
+玩家 --> UC_Pattern
+玩家 --> UC_Repair
+玩家 --> UC_Scene
+玩家 --> UC_Ending
+玩家 --> UC_Quit
+
+UC_Explore .> UC_Move : <<include>>
+UC_Explore .> UC_TaskHint : <<include>>
+UC_Talk .> UC_TaskUpdate : <<include>>
+UC_Pick .> UC_TaskUpdate : <<include>>
+UC_Pattern .> UC_PatternGame : <<include>>
+UC_Pattern .> UC_UnlockCodex : <<extend>>
+UC_Repair .> UC_TaskUpdate : <<include>>
+UC_Repair .> UC_UnlockCodex : <<include>>
+UC_Ending .> UC_Score : <<include>>
+
+@enduml
