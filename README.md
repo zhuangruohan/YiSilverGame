@@ -1,41 +1,102 @@
-#  README.md 
+# 银纹秘境：彝饰守护者
 
-《银纹秘境：彝饰守护者》一个基于 **Python + Pygame + Tiled + PyTMX + JSON** 的 2D 单人离线文化修复探索游戏 Demo。
-
----
-
-## 1. 项目简介
+《银纹秘境：彝饰守护者》是一个基于 **Python + Pygame + Tiled + PyTMX + JSON** 的 2D 单人离线文化修复探索游戏 Demo。
 
 玩家扮演“银纹守护者”，在村寨、山地、集市、工坊和节庆广场中探索，通过 **纹样寻源** 获得拓片，再在工坊中进行 **敲银修复**，逐步修复节庆银饰套装，并获得结局评价。
 
-本项目不是战斗 RPG，而是一个以“探索、观察、收集、拓片、修复、展示”为核心的文化修复探索游戏。
+本项目不是战斗 RPG，而是一个以 **探索、观察、收集、拓片、修复、展示** 为核心的文化修复探索游戏。
 
 ---
 
-## 2. 核心玩法
+## 1. 项目定位
 
-- 地图探索
-- NPC 对话与任务推进
-- 物品拾取与背包
-- 纹样寻源
-  - `source_hunt`：自然场景寻源
-  - `path_maze`：走纹样迷宫
-- 工坊敲银修复
-- 图鉴解锁
-- 套装进度与银光值
-- 节庆展示与结局评价
+本项目定位为：
+
+* Python + Pygame 2D 游戏项目
+* 单人离线文化探索游戏 Demo
+* 彝族银饰文化主题互动游戏
+* AI / Codex 辅助开发实践项目
+* 高标准验收导向的课程项目
+
+核心目标不是堆功能，而是跑通一条完整主流程：
+
+```text
+开始游戏
+→ 地图探索
+→ NPC 对话
+→ 拾取物品
+→ 纹样寻源
+→ 获得拓片
+→ 工坊修复
+→ 图鉴解锁
+→ 节庆展示
+→ 结局评价
+```
 
 ---
 
-## 3. 技术栈
+## 2. 当前开发状态
 
-- Python 3.x
-- Pygame
-- Tiled Map Editor
-- PyTMX
-- JSON
+当前项目处于 **基础工程阶段**。
 
-## 4.项目结构
+已完成：
+
+* 项目文档整理
+* Codex 协作规则整理
+* Task 00 + Task 01 合并执行
+* Pygame 基础工程
+* 800x600 游戏窗口
+* 主菜单占位界面
+* Enter 开始游戏
+* Esc 退出游戏
+* PLAYING 占位界面
+* requirements.txt 依赖文件
+* Git / GitHub 仓库初始化
+
+当前下一步：
+
+1. 使用 Tiled 制作 `maps/village.tmx`
+2. 提交 Tiled 测试地图
+3. 让 Codex 执行 `tasks/task_02_tiled_map_camera.md`
+4. 实现 Tiled 地图加载与摄像机跟随
+
+---
+
+## 3. 核心玩法规划
+
+标准版本规划包含以下玩法：
+
+* 地图探索
+* NPC 对话与任务推进
+* 物品拾取与背包
+* 纹样寻源
+
+  * `source_hunt`：自然场景寻源
+  * `path_maze`：走纹样迷宫
+* 工坊敲银修复
+* 图鉴解锁
+* 套装进度与银光值
+* 节庆展示与结局评价
+
+当前阶段暂不实现完整玩法，先完成基础工程与地图链路。
+
+---
+
+## 4. 技术栈
+
+* Python 3.x
+* Pygame
+* Tiled Map Editor
+* PyTMX
+* JSON
+* Git / GitHub
+* Codex / ChatGPT 辅助开发
+
+---
+
+## 5. 项目结构
+
+当前推荐结构如下：
 
 ```text
 project/
@@ -53,143 +114,259 @@ project/
 │   ├── task_01_base_project.md
 │   ├── task_02_tiled_map_camera.md
 │   ├── task_03_player_collision.md
-│   ├── task_04_object_layers.md
-│   └── ...
+│   └── task_04_object_layers.md
 ├── assets/
 │   ├── images/
 │   ├── tilesets/
 │   ├── sounds/
 │   └── music/
 ├── maps/
-│   ├── village.tmx
-│   ├── workshop.tmx
-│   ├── market.tmx
-│   ├── mountain.tmx
-│   ├── festival.tmx
-│   └── pattern_mountain.tmx
 ├── data/
-│   ├── npcs.json
-│   ├── items.json
-│   ├── tasks.json
-│   ├── dialogues.json
-│   ├── codex.json
-│   ├── patterns.json
-│   ├── silver_parts.json
-│   └── endings.json
 └── src/
+    ├── __init__.py
     ├── game.py
-    ├── scene.py
-    ├── tilemap.py
-    ├── camera.py
-    ├── player.py
-    ├── npc.py
-    ├── item.py
-    ├── interactable.py
-    ├── inventory.py
-    ├── task_manager.py
-    ├── dialogue.py
-    ├── pattern_source.py
-    ├── pattern_realm.py
-    ├── repair_minigame.py
-    ├── codex.py
-    ├── score_manager.py
-    └── ui.py
+    └── ...
 ```
 
-## 5. 快速开始
+说明：
 
-### 5.1 安装依赖
+* 当前已细化任务为 Task 00-04。
+* Task 05-11 暂不作为当前可执行任务。
+* 后续会在 Task 00-04 跑通后继续细化 NPC、背包、任务、纹样、修复、图鉴和结局系统。
+* `maps/` 目录用于保存 Tiled 导出的 `.tmx` 地图。
+* `assets/tilesets/` 用于保存 Tiled 使用的 tileset 图片。
+* `data/` 用于保存 JSON 配置数据。
+* `src/` 用于保存 Pygame 代码模块。
 
-如果项目中已经有 `requirements.txt`：
+---
 
+## 6. 快速开始
+
+### 6.1 安装依赖
+
+推荐使用虚拟环境。
+
+如果已经创建 `.venv`，在 Windows PowerShell 中可以执行：
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
+
+如果已经激活虚拟环境，也可以执行：
+
+```powershell
 pip install -r requirements.txt
 ```
 
-如果暂时还没有生成 `requirements.txt`，可以临时执行：
+### 6.2 运行项目
 
-```
-pip install pygame pytmx
+如果未激活虚拟环境，推荐使用：
+
+```powershell
+.\.venv\Scripts\python.exe main.py
 ```
 
-### 5.2 运行项目
+如果已经激活虚拟环境，可以使用：
 
-```
+```powershell
 python main.py
 ```
 
-------
+注意：
 
-## 6. 开发顺序建议
+如果直接执行 `python main.py` 出现 Microsoft Store 相关提示，说明当前终端没有使用项目虚拟环境。请改用：
 
-严格按照 `tasks/` 目录中的任务文件顺序推进：
-
-1. `task_00_read_docs.md`：文档理解与开发计划确认
-2. `task_01_base_project.md`：基础工程与主循环
-3. `task_02_tiled_map_camera.md`：Tiled 地图加载与摄像机
-4. `task_03_player_collision.md`：玩家移动与碰撞
-5. `task_04_object_layers.md`：Tiled 对象层读取
-6. `task_05_npc_dialogue.md`：NPC 与对话
-7. `task_06_items_inventory.md`：物品拾取与背包
-8. `task_07_task_system.md`：基础任务系统
-9. `task_08_source_hunt.md`：纹样寻源 source_hunt
-10. `task_09_path_maze.md`：纹样寻源 path_maze
-11. `task_10_repair_minigame.md`：工坊修复与敲银
-12. `task_11_codex_progress_ending.md`：图鉴、套装进度与结局
-
-------
-
-## 7. 如何与 Codex 协作
-
-1. 先让 Codex 阅读 `tasks/task_00_read_docs.md`。
-2. Task 00 只输出项目理解和开发计划，不写代码。
-3. 确认 Codex 理解没有跑偏后，再执行 `tasks/task_01_base_project.md`。
-4. 后续严格按照 `tasks/` 目录中的任务文件顺序推进。
-5. 每次只复制一个任务文件给 Codex。
-6. 每完成一步，先运行测试，再进入下一步。
-7. 如果某一步报错，优先修复当前任务，不要跳到后面的系统。
-8. Codex 每次完成任务后必须说明：
-   - 修改了哪些文件；
-   - 每个文件改了什么；
-   - 新增了哪些类和函数；
-   - 如何运行；
-   - 如何测试；
-   - 已知未完成点；
-   - 是否影响上一阶段功能。
-
-------
-
-## 8. 如何使用 Tiled
-
-### 8.1 基础设置
-
-1. 打开 Tiled，新建地图；
-2. 地图方向选择 Orthogonal；
-3. 瓦片尺寸设为 `32x32`；
-4. 地图尺寸应大于 `800x600` 视窗；
-5. 保存为 `.tmx` 文件，放到 `maps/` 目录。
-
-### 8.2 标准图层
-
-创建以下图层：
-
-- `background`
-- `ground`
-- `decoration`
-- `collision`
-- `object_points`
-- `npc_points`
-- `pattern_points`
-- `clue_points`
-- `checkpoint_points`
-- `trigger_points`
-- `foreground`
-
-### 8.3 对象属性
-
-NPC 示例：
-
+```powershell
+.\.venv\Scripts\python.exe main.py
 ```
+
+---
+
+## 7. 当前基础工程验收
+
+当前 Task 00 + Task 01 阶段需要满足：
+
+* [x] 项目能启动
+* [x] 创建 800x600 游戏窗口
+* [x] 显示主菜单
+* [x] 按 Enter 进入 PLAYING 占位界面
+* [x] 按 Esc 退出游戏
+* [x] `main.py` 只作为程序入口
+* [x] `Game` 类负责主循环
+* [x] 主循环拆分为 `handle_events()`、`update()`、`draw()`
+* [ ] Tiled 地图加载，后续 Task 02 实现
+* [ ] 玩家移动与碰撞，后续 Task 03 实现
+* [ ] Tiled 对象层读取，后续 Task 04 实现
+
+---
+
+## 8. Codex 协作方式
+
+本项目使用 Codex / ChatGPT 辅助开发，但 AI 不直接自由生成完整项目。
+
+开发原则：
+
+1. 先读文档，再写代码。
+2. 每次只执行一个任务。
+3. 不跳过任务。
+4. 不一次性重写整个项目。
+5. 不提前实现后续复杂系统。
+6. 缺少素材时使用占位图形或文字。
+7. 每次完成后必须运行测试。
+8. 每次完成后必须说明修改文件、运行方式、测试方法和已知未完成点。
+
+当前可执行任务：
+
+```text
+Task 00：文档理解与开发计划确认
+Task 01：基础工程与主循环
+Task 02：Tiled 地图加载与摄像机
+Task 03：玩家移动与碰撞
+Task 04：Tiled 对象层读取
+```
+
+目前 Task 00 和 Task 01 已合并执行。
+下一步应先制作 `maps/village.tmx`，然后执行 Task 02。
+
+---
+
+## 9. 当前开发路线
+
+### 第一阶段：基础工程
+
+目标：
+
+```text
+能启动
+有窗口
+有主菜单
+能进入占位游戏界面
+能退出
+```
+
+状态：已完成。
+
+### 第二阶段：Tiled 地图链路
+
+目标：
+
+```text
+制作 village.tmx
+读取 Tiled 地图
+绘制地图图层
+摄像机跟随
+缺少地图时不崩溃
+```
+
+状态：下一步。
+
+### 第三阶段：玩家移动与碰撞
+
+目标：
+
+```text
+玩家能移动
+不能穿墙
+不能走出地图边界
+摄像机继续跟随
+```
+
+状态：待执行。
+
+### 第四阶段：对象层读取
+
+目标：
+
+```text
+读取 npc_points
+读取 object_points
+读取 trigger_points
+读取 pattern_points
+读取 clue_points
+读取 checkpoint_points
+输出对象加载数量
+```
+
+状态：待执行。
+
+### 后续阶段
+
+待 Task 00-04 跑通后，再继续细化：
+
+```text
+NPC 与对话
+物品与背包
+任务系统
+纹样寻源
+工坊修复
+图鉴与结局
+```
+
+---
+
+## 10. Tiled 地图制作规范
+
+### 10.1 基础设置
+
+使用 Tiled 新建地图：
+
+* 地图方向：Orthogonal
+* 瓦片尺寸：32x32
+* 测试地图推荐尺寸：60 x 40 tiles
+* 测试地图像素尺寸：1920 x 1280
+* 保存路径：`maps/village.tmx`
+
+### 10.2 标准图层
+
+主地图建议创建以下图层：
+
+```text
+background
+ground
+decoration
+collision
+object_points
+npc_points
+pattern_points
+clue_points
+checkpoint_points
+trigger_points
+foreground
+```
+
+说明：
+
+* `background`：背景层
+* `ground`：地面层
+* `decoration`：装饰层
+* `collision`：碰撞对象层
+* `object_points`：物品、修复台、展示台等对象
+* `npc_points`：NPC 点位
+* `pattern_points`：纹样寻源入口
+* `clue_points`：自然线索点
+* `checkpoint_points`：纹样空间检查点
+* `trigger_points`：出生点、出口、触发区
+* `foreground`：前景遮挡层
+
+### 10.3 第一张 village.tmx 最低对象要求
+
+第一张测试地图至少放置：
+
+#### 出生点
+
+对象层：`trigger_points`
+
+```text
+id: village_spawn_start
+type: spawn
+spawn_id: start
+```
+
+#### 村寨长者
+
+对象层：`npc_points`
+
+```text
 id: elder
 type: npc
 name: 村寨长者
@@ -197,9 +374,23 @@ dialogue_id: elder_dialogue
 task_id: main_01
 ```
 
-出口示例：
+#### 第一块银饰碎片
 
+对象层：`object_points`
+
+```text
+id: silver_fragment_01
+type: item
+name: 银饰碎片
+item_type: fragment
+task_update: main_02
 ```
+
+#### 工坊出口
+
+对象层：`trigger_points`
+
+```text
 id: exit_to_workshop
 type: scene_exit
 target_scene: workshop
@@ -208,172 +399,142 @@ required_task: main_02
 locked_message: 先找到银饰碎片，再去工坊。
 ```
 
-物品示例：
+#### 碰撞区域
 
-```
-id: silver_fragment_01
-type: item
-name: 银饰碎片
-item_type: fragment
-task_update: main_02
-```
+对象层：`collision`
 
-线索点示例：
-
-```
-id: water_clue_01
-type: clue
-name: 河边水流
-pattern_id: water_pattern
-clue_group: water_source
-required_count: 3
-reward_item: water_pattern_rubbing
+```text
+id: house_collision_01
+type: collision
 ```
 
-纹样入口示例：
+---
 
-```
-id: pattern_mountain
-type: pattern_source
-name: 山纹寻源点
-pattern_id: mountain_pattern
-challenge_type: path_maze
-reward_item: mountain_pattern_rubbing
-target_scene: pattern_mountain
-return_scene: mountain
-return_spawn: mountain_return_from_pattern
-```
+## 11. 素材建议
 
-检查点示例：
+当前阶段不要求完整正式素材。
 
-```
-id: mountain_checkpoint_01
-type: pattern_checkpoint
-pattern_id: mountain_pattern
-order: 1
-next_checkpoint: mountain_checkpoint_02
-```
+可以先使用：
 
-------
+* 纯色矩形作为玩家
+* 简单 tileset 作为地图
+* 简单图标作为物品
+* 简单文字作为 UI
+* 简化几何图形作为纹样提示
 
-## 9. 素材建议
+后续再逐步替换为正式素材。
 
-### 9.1 必需图片
+推荐素材目录：
 
-#### 角色类
-
-- 主角站立 / 行走，上下左右
-- 村寨长者
-- 银匠师傅
-- 集市阿妈
-- 节庆主持人
-- 小朋友
-
-#### 地图类
-
-- 村寨 tileset
-- 工坊 tileset
-- 集市 tileset
-- 山地自然场景 tileset
-- 节庆广场 tileset
-- 通用地面、草地、路面、房屋、树木、栅栏、桌台、摊位
-
-#### 对象类
-
-- 银饰碎片
-- 银丝材料
-- 修复锤
-- 银耳环
-- 银手镯
-- 银项圈
-- 银铃 / 银链
-- 纹样拓片图标
-
-#### UI 类
-
-- 主菜单背景
-- 按钮
-- 背包底图
-- 图鉴底图
-- 对话框底图
-- HUD 图标
-
-#### 特效类
-
-- 银光效果
-- 发光检查点
-- 修复成功闪光
-- 纹样路径发光线条
-
-### 9.2 可后补图片
-
-- 前景遮挡树冠
-- 更完整的工坊器具
-- 节庆灯笼和舞台装饰
-- 支线 NPC 头像
-- 更细的纹样插画
-
-------
-
-## 10. 用 GPT 生成素材时怎么说
-
-### 角色示例
-
-```
-生成一个 2D 手绘风游戏 NPC 立绘，主题为彝族村寨长者，朴素服饰，温和神情，正面站姿，适合 Pygame 文化探索游戏，透明背景。
+```text
+assets/
+├── images/
+│   ├── characters/
+│   ├── items/
+│   ├── ui/
+│   └── effects/
+├── tilesets/
+├── sounds/
+└── music/
 ```
 
-### 地图素材示例
+---
 
+## 12. 开发提交建议
+
+基础工程提交：
+
+```powershell
+git add .
+git commit -m "feat(core): create pygame base project"
+git push github main
 ```
-生成一个 2D top-down 游戏 tileset，主题为山地彝族村寨，包含土路、木屋、草地、石阶、树木、围栏，手绘风格，适合 Tiled 地图编辑器。
+
+修复字体或运行问题：
+
+```powershell
+git add .
+git commit -m "fix(core): fix pygame font loading"
+git push github main
 ```
 
-### 物品示例
+添加 Tiled 测试地图：
 
+```powershell
+git add maps/ assets/tilesets/
+git commit -m "feat(map): add village tiled test map"
+git push github main
 ```
-生成一组 2D 游戏道具图标，包含银饰碎片、银丝材料、修复锤、山纹拓片、太阳纹拓片，手绘清晰，透明背景。
+
+如果需要同步 Gitee：
+
+```powershell
+git push gitee main
 ```
 
-------
+当前建议：
 
-## 11. 当前最推荐的开发策略
+* GitHub 作为主仓库
+* Gitee 作为备份仓库
 
-当前阶段优先完成：
+---
 
-1. Task 00：文档理解
-2. Task 01：基础工程
-3. Task 02：Tiled 地图加载与摄像机
-4. Task 03：玩家移动与碰撞
-5. Task 04：Tiled 对象层读取
+## 13. 后续验收目标
 
-在 Task 00-04 没有跑通前，不建议开始 NPC、背包、任务、纹样寻源、工坊修复和结局系统。
+最低可运行版本需要实现：
 
-开发策略：
+* 能启动游戏
+* 有主菜单
+* 能加载 Tiled 地图
+* 玩家能在地图中移动
+* 玩家不能穿墙
+* 玩家不能走出地图边界
+* 能读取 Tiled 对象层
+* 能识别 NPC、Item、Trigger 等基础对象
+* 能与 NPC 对话
+* 能拾取物品
+* 能打开背包
+* 能推进基础任务
+* 能完成至少 1 个纹样寻源
+* 能获得 1 个纹样拓片
+* 能完成 1 次工坊修复
+* 能进入基础结局评价
 
-- 先做占位图 + 跑通逻辑
-- 再逐步替换正式素材
-- 先做 `source_hunt` 和 `path_maze`
-- `align_rubbing` / `point_trace` 放到后面
-- 先实现 P0，再做 P1/P2
-- 每完成一个任务都要测试，不要连续堆功能
+---
 
-------
+## 14. 文化表达原则
 
-## 12. 验收目标
+本项目涉及彝族银饰文化表达，应遵守以下原则：
 
-最少要实现：
+1. 不猎奇化。
+2. 不滥编复杂民俗细节。
+3. 不把民族文化奇幻化、神秘化。
+4. 不用大段文字堆砌知识。
+5. 每个文化知识点尽量绑定一个游戏行为。
+6. 对缺少明确出处的纹样寓意，使用“游戏化转译”表达。
+7. 推荐使用“本游戏将……抽象为……”等表达方式。
+8. 让玩家通过探索、收集、修复和展示自然理解文化内容。
 
-- 能跑起来
-- 有主菜单
-- 能加载 Tiled 地图
-- 玩家能移动
-- 玩家不能穿墙
-- 能读取对象层
-- 能与 NPC 对话
-- 能拾取物品
-- 能打开背包
-- 能推进任务
-- 能获得 1 个拓片
-- 能修复 1 个银饰部件
-- 能进入结局评价
+---
+
+## 15. 项目目标总结
+
+本项目最终希望完成一个可运行、可展示、可验收的 2D 文化修复探索游戏 Demo。
+
+短期目标：
+
+```text
+基础工程 → Tiled 地图 → 玩家移动 → 对象层读取
+```
+
+中期目标：
+
+```text
+NPC 对话 → 物品背包 → 任务系统 → 纹样寻源
+```
+
+最终目标：
+
+```text
+工坊修复 → 图鉴解锁 → 套装进度 → 节庆展示 → 结局评价
+```
