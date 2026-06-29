@@ -1,0 +1,11 @@
+{
+  "main_shadow_chase": {
+    "id": "main_shadow_chase",
+    "name": "追回银饰碎片",
+    "description": "影纹带走了关键银饰碎片，追上它并夺回碎片。",
+    "status": "not_started",
+    "required_scene": "mountain",
+    "reward_item": "purified_silver_fragment",
+    "next_task": "main_05"
+  }
+}

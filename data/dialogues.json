@@ -1,0 +1,65 @@
+{
+  "elder": {
+    "name": "村寨长者",
+    "default": [
+      {
+        "text": "孩子，节庆银饰的光正在慢慢变暗。",
+        "voice": "assets/audio/voice/elder_01.wav"
+      },
+      {
+        "text": "影纹扰乱了纹样的秩序，我们需要重新寻找修复线索。",
+        "voice": "assets/audio/voice/elder_02.wav"
+      },
+      {
+        "text": "先去山地集市寻找银丝材料和纹样木牌，再前往河谷净化影纹。",
+        "voice": "assets/audio/voice/elder_03.wav"
+      }
+    ]
+  },
+  "silversmith": {
+    "name": "银匠",
+    "default": [
+      {
+        "text": "修复银饰需要材料，也需要正确的纹样线索。",
+        "voice": "assets/audio/voice/silversmith_01.wav"
+      },
+      {
+        "text": "带着收集到的线索继续前进，银饰的光会慢慢回来。",
+        "voice": "assets/audio/voice/silversmith_02.wav"
+      }
+    ]
+  },
+  "market_auntie": {
+    "name": "集市阿姨",
+    "default": [
+      {
+        "text": "集市里有银丝材料，也有许多纹样线索。",
+        "voice": "assets/audio/voice/market_auntie_01.wav"
+      },
+      {
+        "text": "仔细看看摊位上的纹样木牌，也许能找到修复银饰的方法。",
+        "voice": "assets/audio/voice/market_auntie_02.wav"
+      }
+    ]
+  },
+  "festival_host": {
+    "name": "节庆主持人",
+    "default": [
+      {
+        "text": "节庆银饰的光芒快要恢复了，请守护展示台！",
+        "voice": "assets/audio/voice/festival_host_01.wav"
+      },
+      {
+        "text": "净化靠近的影纹，别让它们扰乱仪式！",
+        "voice": "assets/audio/voice/festival_host_02.wav"
+      }
+    ]
+  },
+  "shadow_spirit": {
+    "name": "影纹",
+    "default": [
+      "银光散落在山风里。",
+      "追上纹样的影子，才能找回失去的光。"
+    ]
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "market_auntie_idle_front_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      78,
+      14,
+      177,
+      238
+    ],
+    "transparent_pixels": 49918,
+    "partial_alpha_pixels": 2237,
+    "opaque_pixels": 13381,
+    "meta": {
+      "bbox": [
+        394,
+        94,
+        857,
+        1142
+      ],
+      "scaled": [
+        99,
+        224
+      ],
+      "paste": [
+        78,
+        14
+      ]
+    }
+  },
+  "market_auntie_idle_front_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      79,
+      14,
+      176,
+      238
+    ],
+    "transparent_pixels": 50026,
+    "partial_alpha_pixels": 2173,
+    "opaque_pixels": 13337,
+    "meta": {
+      "bbox": [
+        417,
+        136,
+        835,
+        1101
+      ],
+      "scaled": [
+        97,
+        224
+      ],
+      "paste": [
+        79,
+        14
+      ]
+    }
+  },
+  "market_auntie_talk_front_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      71,
+      14,
+      184,
+      238
+    ],
+    "transparent_pixels": 48787,
+    "partial_alpha_pixels": 2494,
+    "opaque_pixels": 14255,
+    "meta": {
+      "bbox": [
+        345,
+        92,
+        859,
+        1115
+      ],
+      "scaled": [
+        113,
+        224
+      ],
+      "paste": [
+        71,
+        14
+      ]
+    }
+  },
+  "market_auntie_talk_front_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      69,
+      14,
+      187,
+      238
+    ],
+    "transparent_pixels": 49888,
+    "partial_alpha_pixels": 2526,
+    "opaque_pixels": 13122,
+    "meta": {
+      "bbox": [
+        302,
+        96,
+        841,
+        1123
+      ],
+      "scaled": [
+        118,
+        224
+      ],
+      "paste": [
+        69,
+        14
+      ]
+    }
+  },
+  "smith_talk_front_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      71,
+      14,
+      184,
+      238
+    ],
+    "transparent_pixels": 46342,
+    "partial_alpha_pixels": 2205,
+    "opaque_pixels": 16989,
+    "meta": {
+      "bbox": [
+        334,
+        98,
+        849,
+        1115
+      ],
+      "scaled": [
+        113,
+        224
+      ],
+      "paste": [
+        71,
+        14
+      ]
+    }
+  },
+  "smith_hammer_front_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      80,
+      14,
+      175,
+      238
+    ],
+    "transparent_pixels": 48951,
+    "partial_alpha_pixels": 2249,
+    "opaque_pixels": 14336,
+    "meta": {
+      "bbox": [
+        410,
+        108,
+        822,
+        1078
+      ],
+      "scaled": [
+        95,
+        224
+      ],
+      "paste": [
+        80,
+        14
+      ]
+    }
+  },
+  "smith_hammer_front_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      81,
+      20,
+      175,
+      241
+    ],
+    "transparent_pixels": 49340,
+    "partial_alpha_pixels": 2200,
+    "opaque_pixels": 13996,
+    "meta": {
+      "bbox": [
+        410,
+        108,
+        822,
+        1078
+      ],
+      "scaled": [
+        94,
+        221
+      ],
+      "paste": [
+        81,
+        20
+      ]
+    }
+  },
+  "smith_idle_front_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      82,
+      14,
+      174,
+      238
+    ],
+    "transparent_pixels": 49489,
+    "partial_alpha_pixels": 2244,
+    "opaque_pixels": 13803,
+    "meta": {
+      "bbox": [
+        408,
+        109,
+        825,
+        1122
+      ],
+      "scaled": [
+        92,
+        224
+      ],
+      "paste": [
+        82,
+        14
+      ]
+    }
+  },
+  "smith_idle_front_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      66,
+      14,
+      190,
+      238
+    ],
+    "transparent_pixels": 48720,
+    "partial_alpha_pixels": 2607,
+    "opaque_pixels": 14209,
+    "meta": {
+      "bbox": [
+        260,
+        75,
+        854,
+        1151
+      ],
+      "scaled": [
+        124,
+        224
+      ],
+      "paste": [
+        66,
+        14
+      ]
+    }
+  },
+  "smith_talk_front_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      69,
+      14,
+      187,
+      238
+    ],
+    "transparent_pixels": 49725,
+    "partial_alpha_pixels": 2444,
+    "opaque_pixels": 13367,
+    "meta": {
+      "bbox": [
+        293,
+        125,
+        821,
+        1124
+      ],
+      "scaled": [
+        118,
+        224
+      ],
+      "paste": [
+        69,
+        14
+      ]
+    }
+  }
+}

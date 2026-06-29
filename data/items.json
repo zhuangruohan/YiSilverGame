@@ -1,0 +1,14 @@
+{
+  "key_silver_fragment": {
+    "id": "key_silver_fragment",
+    "name": "关键银饰碎片",
+    "type": "fragment",
+    "description": "修复银饰所需的重要碎片。"
+  },
+  "purified_silver_fragment": {
+    "id": "purified_silver_fragment",
+    "name": "净化后的银饰碎片",
+    "type": "fragment",
+    "description": "从影纹手中夺回的银饰碎片，已经恢复微弱银光。"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "player_walk_up_03": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      85,
+      28,
+      170,
+      238
+    ],
+    "transparent_pixels": 52469,
+    "partial_alpha_pixels": 2430,
+    "opaque_pixels": 10637,
+    "meta": {
+      "orig_bbox": [
+        441,
+        125,
+        832,
+        1086
+      ],
+      "scaled_size": [
+        85,
+        210
+      ],
+      "paste_xy": [
+        85,
+        28
+      ]
+    }
+  },
+  "player_walk_up_04": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      86,
+      28,
+      170,
+      238
+    ],
+    "transparent_pixels": 53140,
+    "partial_alpha_pixels": 2363,
+    "opaque_pixels": 10033,
+    "meta": {
+      "orig_bbox": [
+        422,
+        122,
+        827,
+        1133
+      ],
+      "scaled_size": [
+        84,
+        210
+      ],
+      "paste_xy": [
+        86,
+        28
+      ]
+    }
+  },
+  "player_walk_left_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      80,
+      28,
+      176,
+      238
+    ],
+    "transparent_pixels": 52684,
+    "partial_alpha_pixels": 2888,
+    "opaque_pixels": 9964,
+    "meta": {
+      "orig_bbox": [
+        343,
+        106,
+        818,
+        1140
+      ],
+      "scaled_size": [
+        96,
+        210
+      ],
+      "paste_xy": [
+        80,
+        28
+      ]
+    }
+  },
+  "player_walk_left_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      75,
+      28,
+      180,
+      238
+    ],
+    "transparent_pixels": 52120,
+    "partial_alpha_pixels": 2855,
+    "opaque_pixels": 10561,
+    "meta": {
+      "orig_bbox": [
+        340,
+        119,
+        851,
+        1138
+      ],
+      "scaled_size": [
+        105,
+        210
+      ],
+      "paste_xy": [
+        75,
+        28
+      ]
+    }
+  },
+  "player_walk_left_03": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      78,
+      28,
+      178,
+      238
+    ],
+    "transparent_pixels": 52235,
+    "partial_alpha_pixels": 2754,
+    "opaque_pixels": 10547,
+    "meta": {
+      "orig_bbox": [
+        355,
+        82,
+        846,
+        1110
+      ],
+      "scaled_size": [
+        100,
+        210
+      ],
+      "paste_xy": [
+        78,
+        28
+      ]
+    }
+  },
+  "player_walk_left_04": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      75,
+      28,
+      180,
+      238
+    ],
+    "transparent_pixels": 51929,
+    "partial_alpha_pixels": 2979,
+    "opaque_pixels": 10628,
+    "meta": {
+      "orig_bbox": [
+        340,
+        121,
+        845,
+        1131
+      ],
+      "scaled_size": [
+        105,
+        210
+      ],
+      "paste_xy": [
+        75,
+        28
+      ]
+    }
+  },
+  "player_walk_right_01": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      77,
+      28,
+      179,
+      238
+    ],
+    "transparent_pixels": 51498,
+    "partial_alpha_pixels": 2954,
+    "opaque_pixels": 11084,
+    "meta": {
+      "orig_bbox": [
+        412,
+        158,
+        861,
+        1085
+      ],
+      "scaled_size": [
+        102,
+        210
+      ],
+      "paste_xy": [
+        77,
+        28
+      ]
+    }
+  },
+  "player_walk_right_02": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      73,
+      28,
+      183,
+      238
+    ],
+    "transparent_pixels": 52017,
+    "partial_alpha_pixels": 3014,
+    "opaque_pixels": 10505,
+    "meta": {
+      "orig_bbox": [
+        354,
+        97,
+        900,
+        1142
+      ],
+      "scaled_size": [
+        110,
+        210
+      ],
+      "paste_xy": [
+        73,
+        28
+      ]
+    }
+  },
+  "player_walk_right_03": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      74,
+      28,
+      182,
+      238
+    ],
+    "transparent_pixels": 51012,
+    "partial_alpha_pixels": 3193,
+    "opaque_pixels": 11331,
+    "meta": {
+      "orig_bbox": [
+        409,
+        152,
+        897,
+        1099
+      ],
+      "scaled_size": [
+        108,
+        210
+      ],
+      "paste_xy": [
+        74,
+        28
+      ]
+    }
+  },
+  "player_walk_right_04": {
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      73,
+      28,
+      182,
+      238
+    ],
+    "transparent_pixels": 51310,
+    "partial_alpha_pixels": 2967,
+    "opaque_pixels": 11259,
+    "meta": {
+      "orig_bbox": [
+        397,
+        142,
+        880,
+        1075
+      ],
+      "scaled_size": [
+        109,
+        210
+      ],
+      "paste_xy": [
+        73,
+        28
+      ]
+    }
+  }
+}
