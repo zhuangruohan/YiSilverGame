@@ -237,11 +237,6 @@
     <property name="spawn_id" value="from_river_valley"/>
    </properties>
   </object>
-  <object id="127" name="spawn_from_festival" type="spawn" x="974" y="776" width="64" height="64">
-   <properties>
-    <property name="spawn_id" value="from_festival"/>
-   </properties>
-  </object>
   <object id="104" name="exit_to_village_market" type="scene_exit" x="1227.34" y="739.334" width="74" height="94">
    <properties>
     <property name="target_scene" value="village_market"/>
@@ -262,16 +257,17 @@
   </object>
   <object id="126" name="exit_to_festival" type="scene_exit" x="909" y="581" width="187" height="188">
    <properties>
+    <property name="id" value="exit_to_festival"/>
     <property name="label" value="前往节庆广场"/>
     <property name="target_scene" value="festival"/>
     <property name="target_spawn" value="from_village_hub"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="8" name="interaction" visible="0">
+ <objectgroup id="8" name="interaction">
   <object id="109" x="1196" y="225.333" height="1.33333"/>
  </objectgroup>
- <objectgroup id="7" name=" npc" visible="0">
+ <objectgroup id="7" name=" npc">
   <object id="72" name="elder" x="1038" y="679">
    <properties>
     <property name="dialogue" value="孩子，银饰失去了光泽，去寻找银纹的线索吧。"/>
@@ -307,7 +303,7 @@
   <object id="122" x="1034" y="712" width="95" height="125"/>
   <object id="123" name="exit_to_festival" x="1068" y="776"/>
  </objectgroup>
- <objectgroup id="6" name="collision" visible="0">
+ <objectgroup id="6" name="collision">
   <object id="1" x="54" y="10"/>
   <object id="2" x="7.33333" y="9.33333" width="1074" height="90"/>
   <object id="21" x="122" y="100.667" width="554" height="79.3333"/>

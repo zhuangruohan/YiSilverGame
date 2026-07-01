@@ -1,21 +1,29 @@
 # Codex 任务文件拆分包使用说明
 
-## 文件结构
+本目录保存早期 Task 00-04 的拆分任务文档，主要用于追溯项目从基础工程到地图、碰撞、对象层读取的开发过程。
+
+当前真实项目已经进入模块化演示版本，核心结构以以下目录为准：
 
 ```text
-CODEX_TASKS.md
-tasks/
-├── task_00_read_docs.md
-├── task_01_base_project.md
-├── task_02_tiled_map_camera.md
-├── task_03_player_collision.md
-└── task_04_object_layers.md
+src/core
+src/scenes
+src/maps
+src/entities
+src/systems
+src/ui
+src/resources
+src/minigames
 ```
 
-## 使用方式
+当前演示主线为：
 
-1. 将 `CODEX_TASKS.md` 放到项目根目录，作为总任务路线。
-2. 将 `tasks/` 文件夹放到项目根目录。
-3. 每次只复制一个 `tasks/task_xx_xxx.md` 的内容给 Codex。
-4. 严格按照 Task 00 → Task 01 → Task 02 → Task 03 → Task 04 的顺序推进。
-5. 每次任务完成后，先运行测试，再进入下一个任务。
+```text
+村寨长者对话 -> 集市寻源 -> 河谷影纹净化 -> 节庆广场守护 -> Ending
+```
+
+如果继续使用本目录下的早期任务文档，请注意：
+
+1. 文档中的 `src/game.py`、`src/scene.py`、`src/tilemap.py` 等旧路径是历史阶段说明。
+2. 当前实现应优先修改 `src/core`、`src/scenes`、`src/maps`、`src/entities`、`src/systems`、`src/ui` 下的模块。
+3. 不要按早期文档把逻辑重新写回 `src/` 根目录单文件结构。
+4. 不要移动或修改 `assets/maps`、`assets/tilesets`、`assets/tiled`、`assets/sprites` 等资源。

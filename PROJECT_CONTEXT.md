@@ -1,152 +1,98 @@
 # PROJECT_CONTEXT.md
 
 ## 项目名称
+
 《银纹秘境：彝饰守护者》
 
 ## 项目定位
-这是一个基于 **Python + Pygame + Tiled + PyTMX + JSON** 的 2D 单人离线文化修复探索游戏 Demo。
 
-## 核心目标
-玩家扮演“银纹守护者”，在村寨、山地、工坊、集市、节庆广场与纹样空间中探索，完成：
-1. 与 NPC 对话获取线索；
-2. 拾取银饰碎片与修复材料；
-3. 进行“纹样寻源”小关卡，获得纹样拓片；
-4. 在工坊完成敲银修复；
-5. 修复节庆银饰套装并获得结局评价。
+这是一个基于 **Python + Pygame + Tiled + PyTMX + JSON** 的 2D 单人离线民族文化探索 RPG Demo。当前版本服务于课程演示，重点是跑通一条可展示、可验收的主线流程。
 
-## 核心机制
-### 1. 纹样寻源系统
-不是简单“按 E 获得拓片”，而是根据纹样来源设计不同的小关卡：
-- `source_hunt`：自然场景寻源（找水、找山、找火等）
-- `path_maze`：走纹样迷宫（玩家沿纹样形状路径行走）
-- `align_rubbing`：纹样对齐（可选优秀扩展）
-- `point_trace`：关键点描摹（可选优秀扩展）
+## 当前主线流程
 
-### 2. 敲银修复系统
-玩家在工坊中消耗/使用拓片与材料，通过时机判定小游戏修复银饰部件。
-
-### 3. 套装进度与银光值
-游戏目标不再是修一件银饰，而是修复一套节庆银饰（如银耳环、银手镯、银项圈、银铃/银链），并根据完成度、图鉴、支线、敲银表现获得评价。
-
-## 场景结构
-主场景：
-- village（村寨入口）
-- workshop（银饰工坊）
-- market（山地集市）
-- mountain（山地自然场景）
-- festival（节庆广场）
-
-纹样空间（可选分场景）：
-- pattern_sun
-- pattern_mountain
-- pattern_water
-- pattern_flower
-
-## 技术约束
-1. 必须使用 Pygame。
-2. 地图建议用 Tiled 制作，瓦片 32x32，视窗 800x600。
-3. 代码必须模块化，不允许所有逻辑写在 `main.py`。
-4. 对象尽量从 Tiled 对象层与 JSON 读取，避免硬编码。
-5. 优先完成 P0/P1 核心流程，再做优秀扩展。
-
-## 推荐目录结构
 ```text
-project/
-├── README.md
-├── AGENTS.md
-├── PROJECT_CONTEXT.md
-├── DEVELOPMENT_RULES.md
-├── CODEX_TASKS.md
-├── ACCEPTANCE_CHECKLIST.md
-├── requirements.txt
-├── main.py
-├── settings.py
-├── codex_tasks_split/
-│   ├── CODEX_TASKS.md
-│   ├──  README_使用说明.md
-│   └──tasks/
-│   ├── task_00_read_docs.md
-│   ├── task_01_base_project.md
-│   ├── task_02_tiled_map_camera.md
-│   ├── task_03_player_collision.md
-│   ├── task_04_object_layers.md
-│   ├── task_05_npc_dialogue.md
-│   ├── task_06_items_inventory.md
-│   ├── task_07_task_system.md
-│   ├── task_08_source_hunt.md
-│   ├── task_09_path_maze.md
-│   ├── task_10_repair_minigame.md
-│   └── task_11_codex_progress_ending.md
-├── assets/
-│   ├── images/
-│   ├── sounds/
-│   └── music/
-├── maps/
-│   ├── village.tmx
-│   ├── workshop.tmx
-│   ├── market.tmx
-│   ├── mountain.tmx
-│   ├── festival.tmx
-│   ├── pattern_sun.tmx
-│   ├── pattern_mountain.tmx
-│   └── pattern_water.tmx
-├── data/
-│   ├── npcs.json
-│   ├── items.json
-│   ├── tasks.json
-│   ├── dialogues.json
-│   ├── codex.json
-│   ├── patterns.json
-│   ├── silver_parts.json
-│   └── endings.json
-└── src/
-    ├── game.py
-    ├── scene.py
-    ├── tilemap.py
-    ├── camera.py
-    ├── player.py
-    ├── npc.py
-    ├── item.py
-    ├── interactable.py
-    ├── inventory.py
-    ├── task_manager.py
-    ├── codex.py
-    ├── pattern_source.py
-    ├── pattern_realm.py
-    ├── repair_minigame.py
-    ├── score_manager.py
-    ├── dialogue.py
-    └── ui.py
+村寨长者对话 -> 集市寻源 -> 河谷影纹净化 -> 节庆广场守护 -> Ending
 ```
 
-## 开发优先级
-### P0
-- 主菜单
-- 地图加载
-- 玩家移动与碰撞
-- NPC 对话
-- 任务系统
-- 物品与背包
-- 至少 1 个纹样寻源关卡
-- 至少 1 次工坊修复
-- 基础结局
+当前已完成的核心演示内容：
 
-### P1
-- 多场景切换
-- 至少 2 种纹样寻源玩法
-- 至少 2 个银饰部件修复
-- 图鉴系统
-- 银光值 / 套装进度
-- 节庆展示
+1. 主菜单进入游戏；
+2. Tiled 地图读取、摄像机和碰撞；
+3. 玩家移动与对象层交互；
+4. NPC 对话；
+5. 集市寻源收集；
+6. 河谷影纹净化；
+7. 节庆广场守护；
+8. 背包收集状态面板；
+9. Ending 结尾评价。
 
-### P2
-- 纹样对齐 / 关键点描摹
-- 支线任务
-- 多结局
-- 本地存档
-- 更完整音效/动画/反馈
+## 技术约束
+
+1. 必须使用 Python + Pygame。
+2. 地图使用 Tiled 制作，使用 PyTMX 读取 TMX。
+3. 视窗为 800x600，瓦片标准为 32x32。
+4. `main.py` 只作为启动入口。
+5. 核心逻辑必须保持模块化，不允许回退到 `src/` 根目录单文件结构。
+6. 不要移动或删除 Tiled 地图、tileset、图片、音频、字体和工具脚本。
+7. 当前清理类任务不得修改主线、地图跳转、NPC 对话、影纹战斗、背包、Ending、音效或语音逻辑。
+
+## 当前目录结构
+
+```text
+main.py                  启动入口
+settings.py              全局配置
+data/                    场景、对话、物品、任务配置
+assets/                  地图、角色、音频、UI 等资源
+src/core/                游戏主循环、状态、事件
+src/scenes/              菜单、开场、主游戏、结尾等场景
+src/maps/                Tiled 地图读取、摄像机、碰撞、对象加载
+src/entities/            玩家、NPC、影纹、物品实体
+src/systems/             主线、收集、战斗、节庆守护、音频、评分等系统
+src/ui/                  HUD、对话框、背包、任务箭头、Ending 面板
+src/resources/           字体、图片等资源加载辅助
+src/minigames/           预留小游戏模块
+src/legacy/              早期遗留或兼容文件
+tools/                   音效、BGM、语音生成工具脚本
+docs/                    设计文档和阶段任务
+puml/                    用例图 / UML 辅助文档
+```
+
+早期 `src/game.py`、`src/scene.py`、`src/tilemap.py`、`src/camera.py`、`src/player.py`、`src/npc.py` 这类根目录兼容入口已迁移到 `src/legacy/compat/`，当前主流程不依赖它们。
+
+## 当前模块说明
+
+- `src/core/game.py`：游戏窗口、主循环、顶层场景切换。
+- `src/scenes/playing_scene.py`：当前主游戏场景，负责地图、玩家、交互和演示主线调度。
+- `src/maps/tilemap.py`：Tiled 地图、对象层、碰撞、出口读取。
+- `src/entities/`：玩家、NPC、影纹和可交互物体。
+- `src/systems/main_quest_manager.py`：当前三关卡主线状态。
+- `src/systems/task_manager.py`：早期轻量任务状态，仍被影纹追逐相关旧逻辑引用，暂保留。
+- `src/ui/simple_inventory_panel.py`：当前使用的小型背包/进度面板。
+- `src/ui/inventory_panel.py`：预留完整背包 UI，占位保留。
+- `src/ui/ending_panel.py`：当前 Ending 结算面板。
+- `src/scenes/ending_scene.py`：预留 Ending 场景壳。
+- `src/minigames/repair_minigame.py`、`src/scenes/repair_scene.py`：工坊修复小游戏预留模块。
+
+## 后续扩展
+
+后续可扩展但当前不作为已完整实现内容：
+
+- 完整工坊敲银修复小游戏；
+- 完整图鉴系统；
+- 更多语音和音效；
+- 本地存档；
+- 更丰富的支线任务和多结局。
+
+## AI 辅助开发过程
+
+1. 前期由开发者确定主题、需求和关卡结构。
+2. AI 提供初始框架和模块实现建议。
+3. 开发者根据课程要求提出修改意见，例如模块化、Tiled 对象层、三关卡顺序、战斗特效、背包小型化、节庆真实入口。
+4. 每次 AI 修改后，开发者本地运行、截图、查看日志并验收。
+5. 最终形成“需求拆解 -> AI 辅助实现 -> 人工验收修正”的开发流程。
 
 ## 文化表达原则
+
 - 不猎奇化、不滥编复杂民俗细节。
 - 对缺乏确定来源的纹样寓意，使用“游戏化转译”表达。
-- 用“自然意象 → 纹样关卡 → 修复反馈”的方式把文化内容做成玩法。
+- 用探索、收集、净化、守护和结尾评价承载文化主题。

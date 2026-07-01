@@ -1,6 +1,14 @@
 # Legacy
 
-旧实现如果后续需要整体保留，可以放入本目录。
+`legacy` 目录保存早期开发阶段遗留或兼容文件，避免直接删除后影响回溯。
 
-当前整改没有删除旧入口文件，而是把 `src/game.py`、`src/scene.py`、`src/tilemap.py`、
-`src/camera.py`、`src/player.py`、`src/npc.py` 改为兼容包装，主流程不从 `legacy` 导入。
+当前核心演示逻辑以以下目录为准：
+
+- `src/core`
+- `src/scenes`
+- `src/maps`
+- `src/entities`
+- `src/systems`
+- `src/ui`
+
+`src/legacy/compat/` 保存早期 `src/*.py` 单文件入口的兼容 wrapper。当前主流程不从 `legacy` 导入这些文件。
